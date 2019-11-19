@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_design/diary.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -6,6 +7,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String name;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             child: Container(
               margin: const EdgeInsets.only(
-                top: 180,
+                top: 130,
               ),
               child: Column(
                 children: <Widget>[
@@ -69,6 +71,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                       ),
                       child: TextField(
+                        onChanged: (text) {
+                          name = text;
+                        },
                         decoration: InputDecoration(
                           hintStyle: TextStyle(
                             fontSize: 20,
@@ -120,7 +125,11 @@ class _MyHomePageState extends State<MyHomePage> {
                               color: Color(0xFF6F4E37),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => Diary(name: name),
+                            ));
+                          },
                         ),
                       ),
                     ),
@@ -133,4 +142,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+
+  void SendName() {}
 }
