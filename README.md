@@ -1,6 +1,6 @@
-# training_app
+# ui_design
 
-A new Flutter application.
+A new Flutter project.
 
 ## Getting Started
 

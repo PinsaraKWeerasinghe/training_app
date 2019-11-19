@@ -1,4 +1,4 @@
-package com.fcodelabs.training_app
+package com.example.ui_design
 
 import android.os.Bundle
 
