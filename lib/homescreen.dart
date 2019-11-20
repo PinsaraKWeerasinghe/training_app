@@ -11,6 +11,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       backgroundColor: Color(0xFF6F4E37),
       body: Column(
         children: <Widget>[
@@ -86,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           contentPadding: EdgeInsets.only(
                             right: 10,
                             left: 10,
-                            top: 5,
+                            top: 7,
                           ),
                         ),
                         style: TextStyle(
