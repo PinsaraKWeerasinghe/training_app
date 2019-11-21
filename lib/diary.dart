@@ -1,3 +1,5 @@
+import 'dart:ui' as prefix0;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'dart:math';
@@ -213,9 +215,97 @@ class _Diary extends State<Diary> with TickerProviderStateMixin {
             height: postContainerHeight,
             color: Color(0xFF6F4E37),
           ),
+          Container(
+            height: 10,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(10),
+                topLeft: Radius.circular(10),
+              ),
+            ),
+          ),
           Expanded(
             child: Container(
               color: Colors.white,
+              child: ListView.builder(
+                itemCount: 50,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding:
+                        EdgeInsets.only(top: 5, bottom: 5, right: 10, left: 10),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Color(0xFFF6F4F3),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
+                      child: Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(
+                              top: 10,
+                              left: 10,
+                            ),
+                            child: Container(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                'hello',
+                                style: TextStyle(
+                                  color: Color(0xFF6F4E37),
+                                  fontFamily: 'AmericanTypewriter',
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(
+                              top: 10,
+                              left: 10,
+                              right: 10,
+                            ),
+                            child: Container(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                'hellosdfsfgagdfgssagwavsdgasf afargqevtasga fvwaaevrawcr',
+                                style: TextStyle(
+                                  color: Color(0xFF6F4E37),
+                                  fontFamily: 'AmericanTypewriter',
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(
+                              top: 10,
+                              left: 10,
+                              right: 10,
+                              bottom: 10,
+                            ),
+                            child: Container(
+                              alignment: Alignment.centerRight,
+                              child: Text(
+                                'By Azeem Muzammil',
+                                style: TextStyle(
+                                  color: Color(0xFF6F4E37),
+                                  fontFamily: 'AmericanTypewriter',
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
             ),
           ),
         ],
