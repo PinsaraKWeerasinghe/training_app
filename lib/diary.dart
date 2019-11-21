@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'homescreen.dart';
 import 'package:flutter/rendering.dart';
@@ -87,7 +88,8 @@ class _Diary extends State<Diary> with TickerProviderStateMixin {
         children: <Widget>[
           AnimatedContainer(
             duration: Duration(milliseconds: 300),
-            child: Column(
+            child: ListView(
+              physics: NeverScrollableScrollPhysics(),
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.only(left: 20, top: 20, right: 20),
@@ -213,9 +215,10 @@ class _Diary extends State<Diary> with TickerProviderStateMixin {
             height: postContainerHeight,
             color: Color(0xFF6F4E37),
           ),
-          Container(
-            height: 100,
-            color: Colors.red,
+          Expanded(
+            child: Container(
+              color: Colors.white,
+            ),
           ),
         ],
       ),
