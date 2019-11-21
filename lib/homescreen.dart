@@ -143,6 +143,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-
-  void SendName() {}
 }
