@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_design/diary.dart';
+import 'package:ui_design/services/database.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -8,6 +9,33 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String name;
+  final _text = TextEditingController();
+
+  showAlertDialog(BuildContext context) {
+    // set up the button
+    Widget okButton = FlatButton(
+      child: Text("OK"),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    );
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Empty Name"),
+      content: Text("Name cannot be empty"),
+      actions: [
+        okButton,
+      ],
+    );
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,6 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         onChanged: (text) {
                           name = text;
                         },
+                        controller: _text,
                         decoration: InputDecoration(
                           hintStyle: TextStyle(
                             fontSize: 20,
@@ -126,10 +155,17 @@ class _MyHomePageState extends State<MyHomePage> {
                               color: Color(0xFF6F4E37),
                             ),
                           ),
-                          onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => Diary(name: name),
-                            ));
+                          onPressed: () async {
+                            if (_text.text.isEmpty) {
+                              showAlertDialog(context);
+                            } else {
+                              var userRef = await UserDatabaseServices()
+                                  .updateUserData(name);
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    Diary(name: name, userRef: userRef),
+                              ));
+                            }
                           },
                         ),
                       ),
