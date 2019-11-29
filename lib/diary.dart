@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'dart:math';
 import 'package:provider/provider.dart';
-import 'package:ui_design/homescreen.dart';
 import 'package:ui_design/post_data.dart';
 import 'package:ui_design/services/database.dart';
 import 'models/posts.dart';
