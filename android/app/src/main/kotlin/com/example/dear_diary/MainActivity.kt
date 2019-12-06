@@ -1,4 +1,4 @@
-package com.example.ui_design
+package com.example.dear_diary
 
 import android.os.Bundle
 
