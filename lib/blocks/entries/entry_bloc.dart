@@ -7,6 +7,7 @@ import './entry.dart';
 
 class EntryBloc extends Bloc<EntryEvent, EntryState> {
   final EntryRepository entryRepository;
+  StreamSubscription _entriesSubscription;
 
   EntryBloc({@required this.entryRepository});
 
@@ -20,7 +21,9 @@ class EntryBloc extends Bloc<EntryEvent, EntryState> {
     if (event is AddEntry) {
       yield* _mapAddEntriesToState(event);
     } else if (event is FetchEntry) {
-      yield* _mapFetchEntriesToState(event);
+      yield* _mapFetchEntriesToState();
+    } else if (event is EntriesUpdated) {
+      yield* _mapEntriesUpdatedToState(event);
     }
   }
 
@@ -38,5 +41,20 @@ class EntryBloc extends Bloc<EntryEvent, EntryState> {
     }
   }
 
-  Stream<EntryState> _mapFetchEntriesToState(FetchEntry event) async* {}
+  Stream<EntryState> _mapFetchEntriesToState() async* {
+    _entriesSubscription?.cancel();
+    _entriesSubscription = entryRepository
+        .entries()
+        .listen((entries) => add(EntriesUpdated(entries: entries)));
+  }
+
+  Stream<EntryState> _mapEntriesUpdatedToState(EntriesUpdated event) async* {
+    yield EntryLoaded(entries: event.entries);
+  }
+
+  @override
+  Future<void> close() {
+    _entriesSubscription.cancel();
+    return super.close();
+  }
 }

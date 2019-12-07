@@ -20,11 +20,11 @@ class EntryRepository {
     });
   }
 
-  Stream<List<Entry>> get entries {
-    return postCollectionReference.snapshots().asyncMap(_entriesListSnapshots);
+  Stream<List<Entry>> entries() {
+    return postCollectionReference.snapshots().asyncMap(_postsListSnapshots);
   }
 
-  Future<List<Entry>> _entriesListSnapshots(QuerySnapshot snapshot) async {
+  Future<List<Entry>> _postsListSnapshots(QuerySnapshot snapshot) async {
     List<Entry> list = [];
     for (var doc in snapshot.documents) {
       list.add(Entry(

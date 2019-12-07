@@ -30,7 +30,7 @@ class EntryTile extends StatelessWidget {
                   entry.title,
                   style: TextStyle(
                     color: Color(0xFF6F4E37),
-                    fontFamily: 'AmericanTypewriter',
+                    fontFamily: 'American Typewriter',
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
@@ -49,7 +49,7 @@ class EntryTile extends StatelessWidget {
                   entry.description,
                   style: TextStyle(
                     color: Color(0xFF6F4E37),
-                    fontFamily: 'AmericanTypewriter',
+                    fontFamily: 'American Typewriter',
                     fontSize: 16,
                     fontWeight: FontWeight.normal,
                   ),
@@ -69,7 +69,7 @@ class EntryTile extends StatelessWidget {
                   'By: ${entry.user.name}',
                   style: TextStyle(
                     color: Color(0xFF6F4E37),
-                    fontFamily: 'AmericanTypewriter',
+                    fontFamily: 'American Typewriter',
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),

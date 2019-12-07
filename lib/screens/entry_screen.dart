@@ -2,14 +2,12 @@ import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dear_diary/blocks/blocks.dart';
-import 'package:dear_diary/repositories/repositories.dart';
 import 'package:dear_diary/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EntryScreen extends StatefulWidget {
   final DocumentReference userRef;
-  EntryRepository entryRepository = EntryRepository();
   EntryScreen({
     this.userRef,
   });
@@ -24,7 +22,6 @@ class _EntryScreenState extends State<EntryScreen>
 
   final _titleText = TextEditingController();
   final _descriptionText = TextEditingController();
-
   Animation _addAnimation;
   AnimationController _addAnimationController;
 
@@ -56,6 +53,7 @@ class _EntryScreenState extends State<EntryScreen>
   @override
   void initState() {
     super.initState();
+    BlocProvider.of<EntryBloc>(context).add(FetchEntry());
     _addAnimationController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 300));
     _addAnimation =
@@ -64,10 +62,8 @@ class _EntryScreenState extends State<EntryScreen>
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (BuildContext context) =>
-          EntryBloc(entryRepository: widget.entryRepository),
-      child: Scaffold(
+    return BlocBuilder<EntryBloc, EntryState>(builder: (context, state) {
+      return Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Color(0xFF6F4E37),
         appBar: AppBar(
@@ -99,20 +95,7 @@ class _EntryScreenState extends State<EntryScreen>
                   iconSize: 35,
                   color: Color(0xFFCFC6C0),
                   onPressed: () {
-                    setState(() {
-                      if (isExpanded) {
-                        postContainerHeight = 0.0;
-                      } else {
-                        postContainerHeight = 320.0;
-                      }
-                    });
-                    if (_addAnimationController.isCompleted) {
-                      _addAnimationController.reverse();
-                      isExpanded = false;
-                    } else {
-                      _addAnimationController.forward();
-                      isExpanded = true;
-                    }
+                    xButtonPressed();
                   },
                 ),
               ),
@@ -126,13 +109,6 @@ class _EntryScreenState extends State<EntryScreen>
               child: ListView(
                 physics: NeverScrollableScrollPhysics(),
                 children: <Widget>[
-                  // BlocListener<EntryBloc, EntryState>(
-                  //   listener: (context, state) {
-                  //     if (state is EntryUpdated) {
-                  //       print("Entry is Updated!");
-                  //     }
-                  //   },
-                  // ),
                   Padding(
                     padding: EdgeInsets.only(left: 20, top: 20, right: 20),
                     child: Container(
@@ -272,15 +248,63 @@ class _EntryScreenState extends State<EntryScreen>
                 ),
               ),
             ),
-            Expanded(
-              child: Container(
-                color: Colors.white,
-                child: EntryList(),
-              ),
+            BlocBuilder<EntryBloc, EntryState>(
+              builder: (context, state) {
+                if (state is EntryLoaded) {
+                  final entries = state.entries;
+                  print(entries);
+                  return Expanded(
+                    child: Container(
+                      color: Colors.white,
+                      child: EntryList(
+                        entries: entries,
+                      ),
+                    ),
+                  );
+                } else if (state is EntryUpdated) {
+                  //closeUppedContainer();
+                  return Expanded(
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+                } else {
+                  return Expanded(
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+                }
+              },
             ),
           ],
         ),
-      ),
-    );
+      );
+    });
+  }
+
+  void xButtonPressed() {
+    setState(() {
+      if (isExpanded) {
+        postContainerHeight = 0.0;
+      } else {
+        postContainerHeight = 320.0;
+      }
+    });
+    if (_addAnimationController.isCompleted) {
+      _addAnimationController.reverse();
+      isExpanded = false;
+    } else {
+      _addAnimationController.forward();
+      isExpanded = true;
+    }
+  }
+
+  void closeUppedContainer() {
+    setState(() {
+      postContainerHeight = 0.0;
+      _addAnimationController.reverse();
+      isExpanded = false;
+    });
   }
 }

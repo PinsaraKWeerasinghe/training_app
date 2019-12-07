@@ -15,12 +15,12 @@ class EntryEmpty extends EntryState {}
 class EntryLoading extends EntryState {}
 
 class EntryLoaded extends EntryState {
-  final Entry entry;
+  final List<Entry> entries;
 
-  const EntryLoaded({@required this.entry}) : assert(entry != null);
+  const EntryLoaded({@required this.entries}) : assert(entries != null);
 
   @override
-  List<Object> get props => [entry];
+  List<Object> get props => [entries];
 }
 
 class EntryError extends EntryState {}

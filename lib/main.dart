@@ -15,28 +15,38 @@ class SimpleBlocDelegate extends BlocDelegate {
 
 void main() {
   final UserRepository userRepository = UserRepository();
+  final EntryRepository entryRepository = EntryRepository();
   BlocSupervisor.delegate = SimpleBlocDelegate();
   runApp(App(
     userRepository: userRepository,
+    entryRepository: entryRepository,
   ));
 }
 
 class App extends StatelessWidget {
   final UserRepository userRepository;
+  final EntryRepository entryRepository;
 
-  App({Key key, @required this.userRepository})
+  App({Key key, @required this.userRepository, @required this.entryRepository})
       : assert(userRepository != null),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Weather',
-      home: BlocProvider(
-        create: (context) => UserBloc(userRepository: userRepository),
-        child: UserScreen(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<UserBloc>(
+          create: (context) => UserBloc(userRepository: userRepository),
+        ),
+        BlocProvider<EntryBloc>(
+          create: (context) => EntryBloc(entryRepository: entryRepository),
+        )
+      ],
+      child: MaterialApp(
+        title: "Dear Diary",
+        home: UserScreen(),
+        debugShowCheckedModeBanner: false,
       ),
-      debugShowCheckedModeBanner: false,
     );
   }
 }
