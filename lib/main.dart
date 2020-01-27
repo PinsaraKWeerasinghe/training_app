@@ -1,20 +1,51 @@
-
-
-
 import 'package:flutter/material.dart';
+import 'diary_home.dart';
 import 'dear_diary.dart';
 
+void main() => runApp(Deardiary());
 
-void main() => runApp(MyApp());
+class Deardiary extends StatefulWidget {
 
-class MyApp extends StatelessWidget{
   @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return MaterialApp(
-      home: DiaryCard(title: "Reasons Why Learning English is so Important", subtitle:"Noah",discription:"English may not be the most spoken language in the world, but it is the official language of 53 continues and spoken...",color:Colors.blue),
-    );
-  }
+  MainState createState() => MainState();
 
 }
 
+class MainState extends State<Deardiary>{
+
+  final List list = <Widget>[];
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+          appBar: AppBar(
+            title: Text("Hello Dear Diary!"),
+          ),
+          body: SingleChildScrollView(
+            child: Container(
+              child: Column(
+                children: <Widget>[
+                  DiaryHome((String title, String description) {
+                    list.add(DiaryCard(
+                        title: title,
+                        subtitle: "Noah",
+                        discription: description,
+                        color: Colors.grey));
+
+                    setState(() {
+
+                    });
+                  }),
+
+
+                  new Column(
+                      children:list
+                  )
+                ],
+              ),
+            ),
+          )),
+    );
+  }
+}
