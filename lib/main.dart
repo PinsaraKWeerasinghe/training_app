@@ -6,7 +6,13 @@ import 'form_card.dart';
 
 void main() => runApp(Diary());
 
-class Diary extends StatelessWidget {
+class Diary extends StatefulWidget {
+  @override
+  _mainState createState() => _mainState();
+}
+class _mainState extends State<Diary> {
+  final List childrenList= <Widget>[];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -44,27 +50,14 @@ class Diary extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                FormCard(),
-                DiaryCard(
-                    "Reasons Why Learning English is so Important",
-                    'Noah',
-                    'English may not be the most spoken language in the world, but it is the offcial language of 53 countries and spoken...English may not be the most spoken language in the world, but it is the offcial language of 53 countries and spoken...',
-                    Colors.orange),
-                DiaryCard(
-                    "ABCD",
-                    'efgh',
-                    'njdajdbvhjbdvjhbjvnklkd bvhdivbhd ijdhvjnkvlkc',
-                    Colors.lightGreen),
-                DiaryCard(
-                    "EFGH",
-                    'efgh',
-                    'njdajdbvhjbdvjhbjvnklkd bvhdivbhd ijdhvjnkvlkc',
-                    Colors.indigo),
-                DiaryCard(
-                    "IJKL",
-                    'efgh',
-                    'njdajdbvhjbdvjhbjvnklkd bvhdivbhd ijdhvjnkvlkc njdajdbvhjbdvjhbjvnklkd bvhdivbhd ijdhvjnkvlkc njdajdbvhjbdvjhbjvnklkd bvhdivbhd ijdhvjnkvlkc njdajdbvhjbdvjhbjvnklkd bvhdivbhd ijdhvjnkvlkc njdajdbvhjbdvjhbjvnklkd bvhdivbhd ijdhvjnkvlkc njdajdbvhjbdvjhbjvnklkd bvhd',
-                    Colors.pink),
+                FormCard((String title, String description){
+                  childrenList.add(DiaryCard(title,'Noah',description,Colors.orange));
+                  setState(() {});
+                }),
+                Column(
+                  children: childrenList,
+                )
+//                childrenList.add(DiaryCard(title,'Noah',description,Colors.orange));
               ],
             ),
           ),
@@ -72,4 +65,5 @@ class Diary extends StatelessWidget {
       ),
     );
   }
+
 }

@@ -2,7 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
+
 class FormCard extends StatefulWidget {
+
+  final void Function(String, String) onPress;
+  const FormCard(this.onPress);
+
   @override
   _FormCardState createState() => _FormCardState();
 }
@@ -10,6 +15,7 @@ class FormCard extends StatefulWidget {
 // Define a corresponding State class.
 // This class holds the data related to the Form.
 class _FormCardState extends State<FormCard> {
+
   // Create a text controller and use it to retrieve the current value
   // of the TextField.
   final titleController = TextEditingController();
@@ -60,8 +66,21 @@ class _FormCardState extends State<FormCard> {
                 borderRadius: new BorderRadius.circular(18.0),
             ),
             onPressed: () {
-              print('title :- '+titleController.text);
-              print('description :- '+descriptionController.text);
+              String title=titleController.text;
+              String description=descriptionController.text;
+              if(title==''){
+                print('Missing title');
+                return;
+              }else{
+                print('title :- '+titleController.text);
+              }
+              if(description==''){
+                print('Missing description');
+                return;
+              }else{
+                print('description :- '+descriptionController.text);
+              }
+              widget.onPress(title, description);
               titleController.clear();
               descriptionController.clear();
             },

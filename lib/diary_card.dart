@@ -39,14 +39,6 @@ class DiaryCard extends StatelessWidget {
                       child: Text(_description,style: TextStyle(fontSize: 18.0),maxLines: 3,
                       ),
                     ),
-                    /*FlatButton(
-
-//                    padding: EdgeInsets.fromLTRB(10,0,0,0),
-                    color: Colors.cyan,
-                    child: Text("SHOW MORE"),
-                    onPressed: () {},
-                  ),
-                  */
                     RaisedButton(
                       onPressed: () {},
                       color: Colors.cyan,
