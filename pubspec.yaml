@@ -20,6 +20,8 @@ dependencies:
   meta: ^1.1.6
   equatable: ^1.0.0
   flutter_bloc: ^3.1.0
+  bloc: 3.0.0
+  fcode_bloc: 0.4.7
   flutter:
     sdk: flutter
 
@@ -31,11 +33,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter:
-    sdk: flutter
-  flutter_bloc: ^3.1.0
-  http: ^0.12.0
-  equatable: ^1.0.0
+
 
 
 # For information on the generic Dart part of this file, see the

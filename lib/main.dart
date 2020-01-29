@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:training_app/home_page/home_page_bloc.dart';
+import 'package:training_app/home_page/screens/home_page_view.dart';
 
-import 'diary_card.dart';
-import 'form_card.dart';
 
 void main() => runApp(Diary());
 
@@ -16,54 +17,10 @@ class _mainState extends State<Diary> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Dear Diary --> Home'),
-          actions: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(right: 20.0),
-              child: Icon(
-                Icons.search,
-                color: Colors.white,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 20.0),
-              child: Icon(
-                Icons.notifications_none,
-                color: Colors.white,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 12.0),
-              child: Icon(Icons.account_circle, color: Colors.white),
-            ),
-          ],
-        ),
-        backgroundColor: Colors.cyan,
-        body: SingleChildScrollView(
-          child: Container(
-            padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-            height: 1500,
-            width: double.maxFinite,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                FormCard((String title, String description){
-                  childrenList.add(DiaryCard(title,'Noah',description,Colors.orange));
-                  setState(() {});
-                }),
-                Column(
-                  children: childrenList,
-                )
-//                childrenList.add(DiaryCard(title,'Noah',description,Colors.orange));
-              ],
-            ),
-          ),
-        ),
+      home: BlocProvider<HomePageBloc>(
+        create: (context) => HomePageBloc(context),
+        child: HomePageView(),
       ),
     );
   }
-
 }
