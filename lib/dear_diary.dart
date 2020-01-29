@@ -9,7 +9,9 @@ class DiaryCard extends StatelessWidget {
   final String subtitle;
   final String discription;
   final Color color;
+  void m() {
 
+  }
   @override
   Widget build(BuildContext context) {
 
