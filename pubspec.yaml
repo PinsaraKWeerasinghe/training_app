@@ -14,14 +14,18 @@ description: A new Flutter application.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.6.0 <3.0.0"
 
 dependencies:
-  meta: ^1.1.6
+
+  rxdart: ^0.23.0
   equatable: ^1.0.0
-  flutter_bloc: ^3.1.0
+  firebase_core: ^0.4.0+8
+  meta: ^1.1.6
+  cloud_firestore: ^0.13.0+1
   bloc: 3.0.0
-  fcode_bloc: 0.4.7
+  fcode_bloc: ^0.4.7
+  flutter_bloc: ^3.1.0
   flutter:
     sdk: flutter
 

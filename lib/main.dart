@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:training_app/ui/home_page/home_page_bloc.dart';
+import 'package:training_app/ui/home_page/home_page_view.dart';
 
-import 'home_page/home_page_bloc.dart';
-import 'home_page/home_page_action.dart';
-import 'home_page/home_page_model.dart';
-import 'home_page/home_page_view.dart';
 
 void main() => runApp(Deardiary());
 
@@ -65,8 +62,6 @@ class Deardiary extends StatefulWidget {
 }
 
 class MainState extends State<Deardiary>{
-
-  final List list = <Widget>[];
 
   @override
   Widget build(BuildContext context) {

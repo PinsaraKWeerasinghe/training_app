@@ -6,7 +6,8 @@ class DiaryHome extends StatefulWidget {
 
   final void Function(String, String) onPress;
 
-  _TextInputValueState createState() => _TextInputValueState();
+ @override
+_TextInputValueState createState() => _TextInputValueState();
 
   const DiaryHome(this.onPress);
 }

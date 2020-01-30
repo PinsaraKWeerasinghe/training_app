@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "196853017129",
+    "firebase_url": "https://dear-diary-chamalkam.firebaseio.com",
+    "project_id": "dear-diary-chamalkam",
+    "storage_bucket": "dear-diary-chamalkam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:196853017129:android:bba8068c8032922df00a38",
+        "android_client_info": {
+          "package_name": "com.fcodelabs.training_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "196853017129-hq6ubapbm5s3pr57iu1j5q372b0l3tt8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgupzheUfkCVawxQHnR7FF0wxPZUeiMc8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "196853017129-hq6ubapbm5s3pr57iu1j5q372b0l3tt8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
