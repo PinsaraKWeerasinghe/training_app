@@ -59,7 +59,7 @@ class TestState extends State<DiaryHome> {//to save text in console
                     hintStyle: TextStyle(color: Colors.grey),
                     filled: true,
                     fillColor: Colors.white70,
-                    enabledBorder: OutlineInputBorder(
+                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(20.0)),
                       borderSide: BorderSide(color: Colors.grey),
 
@@ -74,24 +74,10 @@ class TestState extends State<DiaryHome> {//to save text in console
             padding: EdgeInsets.all(10.0),
             child: RaisedButton(
               onPressed: (){
-                String title = titlecontroller.text;//to save text in console
-                String description = descriptioncontroller.text;//to save text in console
-                if(title == ''){//to save text in console
-                  print('Title is Missing..');//to save text in console
-                  return;//to save text in console
-                }else{//to save text in console
-                  print('title : '+ titlecontroller.text);//to save text in console
-                }//to save text in console
-                if(description == ''){//to save text in console
-                  print('Description is Missing..');//to save text in console
-                  return;//to save text in console
-                }else{//to save text in console
-                  print('description : '+ descriptioncontroller.text);//to save text in console
-
-                }//to save text in console
-//                widget.onPress(title,description);
-                titlecontroller.clear();
-                descriptioncontroller.clear();
+                  print('title  : ' + titlecontroller.text);//to save text in console
+                  print('Description : '+ descriptioncontroller.text);//to save text in console
+                  titlecontroller.clear(); //to clear textfeild
+                  descriptioncontroller.clear(); //to clear textfeild
               },
               child: Text('Submit'),
               color: Colors.lightBlue,
