@@ -35,4 +35,9 @@ class PostRepository extends FirebaseRepository<Post>{
     return super.add(item: item, type: DBUtil.POST,);
   }
 
+ @override
+  Future<List<Post>> querySingle({SpecificationI specification, String type, DocumentReference parent}) {
+    return super.querySingle(specification:specification, type:DBUtil.POST,);
+  }
+
 }
