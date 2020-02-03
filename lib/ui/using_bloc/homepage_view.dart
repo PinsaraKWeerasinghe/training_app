@@ -36,7 +36,6 @@ class HomepageView extends StatelessWidget{
                   final List list = <Widget>[];
                   for(int i =0; i<  state.titles.length; i++){
                     list.add(DiaryCard(state.titles[i],'Noah', state.descriptions[i],Colors.teal));
-
                   }
                   return Column(
                     children: list,

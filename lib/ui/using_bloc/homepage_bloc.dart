@@ -15,7 +15,9 @@ class HomePageBloc extends Bloc<HomePageAction, HomePageModel> {
 
   final postRepository = PostRepository();
 
-  HomePageBloc(BuildContext context);
+  HomePageBloc(BuildContext context){
+    add(LoardCardAction());
+  }
 
   @override
   HomePageModel get initialState => HomePageModel(
@@ -38,6 +40,19 @@ class HomePageBloc extends Bloc<HomePageAction, HomePageModel> {
         await postRepository.add(item: Post(user: "isuri",title: title,description: description,created: Timestamp.now()));
 
         yield state.clone(titles: titles,descriptions: descriptions);
+        break;
+
+      case LoardCardAction:
+        final posts = await postRepository.querySingle(specification: ComplexSpecification([]));
+        for(var list in posts){
+          final titles = List.of(state.titles);
+          titles.add(list.title);
+
+          final description = List.of(state.descriptions);
+          description.add(list.description);
+
+          yield state.clone(titles: titles,descriptions: description);
+        }
         break;
     }
   }
