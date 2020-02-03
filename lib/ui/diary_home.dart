@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:training_app/diary_card.dart';
-import 'package:training_app/diary_home.dart';
+import 'package:training_app/ui/diary_card.dart';
+import 'package:training_app/ui/diary_home.dart';
 
 class DiaryHome extends StatefulWidget{
 

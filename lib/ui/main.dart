@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:training_app/diary_card.dart';
-import 'package:training_app/diary_home.dart';
-import 'package:training_app/using_bloc/homepage_bloc.dart';
-import 'package:training_app/using_bloc/homepage_view.dart';
+import 'package:training_app/ui/using_bloc/homepage_bloc.dart';
+import 'package:training_app/ui/using_bloc/homepage_view.dart';
 
 void main() => runApp(Diary());
 

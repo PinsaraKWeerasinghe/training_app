@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:training_app/diary_card.dart';
-import 'package:training_app/diary_home.dart';
-import 'package:training_app/using_bloc/homepage_action.dart';
-import 'package:training_app/using_bloc/homepage_bloc.dart';
-import 'package:training_app/using_bloc/homepage_model.dart';
+import 'package:training_app/ui/diary_card.dart';
+import 'package:training_app/ui/diary_home.dart';
+
+import 'homepage_action.dart';
+import 'homepage_bloc.dart';
+import 'homepage_model.dart';
 
 class HomepageView extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    final bloc=BlocProvider.of<HomePageBloc>(context);
+    final blocProvider =BlocProvider.of<HomePageBloc>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -27,7 +28,7 @@ class HomepageView extends StatelessWidget{
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               DiaryHome((String title, String description){
-              bloc.add(LoardCardAction(title,description));
+              blocProvider.add(SubmitAction(title,description));
 
             }),
               BlocBuilder<HomePageBloc, HomePageModel>(

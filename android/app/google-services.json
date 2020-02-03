@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "196740930284",
+    "firebase_url": "https://dear-diary-isurif.firebaseio.com",
+    "project_id": "dear-diary-isurif",
+    "storage_bucket": "dear-diary-isurif.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:196740930284:android:cbee52352bc8dbab70e3c9",
+        "android_client_info": {
+          "package_name": "com.fcodelab.training_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "196740930284-jev7u5uimj7ui68p4stjh24a5adkghb9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMNCbHZuFuwmZdUeXNpFgJ-FrqrfmsOe4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "196740930284-jev7u5uimj7ui68p4stjh24a5adkghb9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
