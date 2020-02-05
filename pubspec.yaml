@@ -14,9 +14,14 @@ description: A new Flutter application.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.6.0 <3.0.0"
 
 dependencies:
+  meta: ^1.1.6
+  equatable: ^1.0.0
+  flutter_bloc: ^3.1.0
+  bloc: 3.0.0
+  fcode_bloc: 0.4.7
   flutter:
     sdk: flutter
 
@@ -27,6 +32,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+
 
 
 # For information on the generic Dart part of this file, see the
