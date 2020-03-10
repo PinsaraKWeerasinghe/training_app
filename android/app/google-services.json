@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "465591273728",
+    "firebase_url": "https://trainingapp-fa88c.firebaseio.com",
+    "project_id": "trainingapp-fa88c",
+    "storage_bucket": "trainingapp-fa88c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:465591273728:android:48bbcc55c7a970b1604be5",
+        "android_client_info": {
+          "package_name": "com.fcodelabs.trainingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "465591273728-jat9cmto7ukvfddh0mfuq5u7lif9mmug.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2oc2N6ikkbRbH59ATzgoHoQebPaH8q4E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "465591273728-jat9cmto7ukvfddh0mfuq5u7lif9mmug.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
